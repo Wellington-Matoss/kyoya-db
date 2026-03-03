@@ -38,6 +38,16 @@ Este projeto utiliza o MongoDB em um container Docker para facilitar o desenvolv
 
    Os dados do MongoDB serão armazenados no diretório `./mongodb/data` do seu projeto.
 
+## URI de conexão
+
+Após subir o container, você pode se conectar ao banco usando a seguinte URI:
+
+```
+mongodb://usuario_admin:senha_admin@localhost:27017/nome_do_banco
+```
+
+Substitua `usuario_admin`, `senha_admin` e `nome_do_banco` pelos valores definidos no seu arquivo `mongod.env`.
+
 ## Parar o container
 
 Para parar o serviço, utilize:
