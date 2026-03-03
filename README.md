@@ -24,6 +24,8 @@ Este projeto utiliza o MongoDB em um container Docker para facilitar o desenvolv
    MONGO_INITDB_ROOT_PASSWORD=senha_admin
    ```
 
+   > **Observação:** O usuário definido nas variáveis `MONGO_INITDB_ROOT_USERNAME` e `MONGO_INITDB_ROOT_PASSWORD` será criado no banco de autenticação `admin`. Por isso, ao conectar, é necessário especificar `authSource=admin` na URI de conexão.
+
 2. **Suba o container com Docker Compose**
 
    Execute o comando abaixo para iniciar o MongoDB:
@@ -43,7 +45,7 @@ Este projeto utiliza o MongoDB em um container Docker para facilitar o desenvolv
 Após subir o container, você pode se conectar ao banco usando a seguinte URI:
 
 ```
-mongodb://usuario_admin:senha_admin@localhost:27017/nome_do_banco
+mongodb://usuario_admin:senha_admin@localhost:27017/nome_do_banco?authSource=admin
 ```
 
 Substitua `usuario_admin`, `senha_admin` e `nome_do_banco` pelos valores definidos no seu arquivo `mongod.env`.
