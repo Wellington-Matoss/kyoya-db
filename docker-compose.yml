@@ -1,0 +1,21 @@
+services:
+  mongodb:
+    image: mongo:7.0
+    container_name: mongodb
+    restart: unless-stopped
+    ports:
+      - 27017:27017
+    env_file: ./mongod.env
+    volumes:
+      - ./mongodb/data:/data/db
+    networks:
+      - mongodb_network
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: '200k'
+        max-file: '10'
+
+networks:
+  mongodb_network:
+    driver: bridge
